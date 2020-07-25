@@ -7,30 +7,6 @@
 
 import SwiftUI
 
-
-struct PhotoDetailView: View {
-  @ObservedObject var image: Remote<UIImage>
-
-  init(_ url: URL) {
-    image = Remote(url: url) {
-      UIImage(data: $0)
-    }
-  }
-  var body: some View {
-    Group {
-      if image.value == nil {
-        Text("Loading…").onAppear {
-          self.image.load()
-        }
-      } else {
-        Image(uiImage: image.value!)
-          .resizable()
-          .aspectRatio(image.value!.size, contentMode: .fit)
-      }
-    }
-  }
-}
-
 struct PhotoListView: View {
   @ObservedObject var items = Remote(
     url: URL(string: "https://picsum.photos/v2/list")!,
@@ -72,7 +48,9 @@ struct PhotoCell: View {
 
   var body: some View {
     VStack(alignment: .leading) {
-      Text(author).foregroundColor(Color(UIColor.label)).redacted(reason: redaction ?? .init())
+      Text(author)
+        .foregroundColor(Color(UIColor.label))
+        .redacted(reason: redaction ?? .init())
     }
   }
 }
