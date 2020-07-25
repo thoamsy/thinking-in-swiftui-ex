@@ -23,14 +23,17 @@ struct PhotoListView: View {
       VStack {
         if items.value == nil {
           List(self.default, id: \.self) { author in
-            PhotoCell(author: author, redaction: .placeholder)
+            PhotoCell(
+              author: author,
+              redaction: .placeholder
+            )
           }.onAppear {
             self.items.load()
           }
         } else {
           List(items.value ?? []) { photo in
             NavigationLink(
-              destination: PhotoDetailView(photo.download_url)
+              destination: PhotoDetailView(photo.download_url, aspectRadio: CGFloat(photo.width / photo.height))
             ) {
               PhotoCell(author: photo.author)
             }
