@@ -13,8 +13,8 @@
 		59CDEAB924CC31CB00F1AA7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59CDEAB824CC31CB00F1AA7B /* Preview Assets.xcassets */; };
 		59CDEAC124CC418600F1AA7B /* Knob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CDEAC024CC418600F1AA7B /* Knob.swift */; };
 		59CDEAC424CC769F00F1AA7B /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CDEAC324CC769F00F1AA7B /* Photo.swift */; };
-		59CDEAC624CC7AAB00F1AA7B /* PhotoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CDEAC524CC7AAB00F1AA7B /* PhotoData.swift */; };
 		59CDEAC824CC7FDF00F1AA7B /* PhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CDEAC724CC7FDF00F1AA7B /* PhotoListView.swift */; };
+		59CDEACA24CC8B0400F1AA7B /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CDEAC924CC8B0400F1AA7B /* Remote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +26,8 @@
 		59CDEABA24CC31CB00F1AA7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59CDEAC024CC418600F1AA7B /* Knob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knob.swift; sourceTree = "<group>"; };
 		59CDEAC324CC769F00F1AA7B /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
-		59CDEAC524CC7AAB00F1AA7B /* PhotoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoData.swift; sourceTree = "<group>"; };
 		59CDEAC724CC7FDF00F1AA7B /* PhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListView.swift; sourceTree = "<group>"; };
+		59CDEAC924CC8B0400F1AA7B /* Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				59CDEAC324CC769F00F1AA7B /* Photo.swift */,
-				59CDEAC524CC7AAB00F1AA7B /* PhotoData.swift */,
+				59CDEAC924CC8B0400F1AA7B /* Remote.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,8 +159,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				59CDEAC424CC769F00F1AA7B /* Photo.swift in Sources */,
-				59CDEAC624CC7AAB00F1AA7B /* PhotoData.swift in Sources */,
 				59CDEAB424CC31CA00F1AA7B /* ContentView.swift in Sources */,
+				59CDEACA24CC8B0400F1AA7B /* Remote.swift in Sources */,
 				59CDEAC124CC418600F1AA7B /* Knob.swift in Sources */,
 				59CDEAB224CC31CA00F1AA7B /* ThinkingInSwiftUIApp.swift in Sources */,
 				59CDEAC824CC7FDF00F1AA7B /* PhotoListView.swift in Sources */,

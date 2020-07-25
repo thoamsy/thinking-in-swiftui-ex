@@ -7,33 +7,59 @@
 
 import SwiftUI
 
-//
-//struct PhotoDetailView: View {
-//  let meta: Photos.PhotoMeta
-//
-//  var body: some View {
-//    Image().frame(width: meta.width, height: meta.height)
-//  }
-//}
+
+struct PhotoDetailView: View {
+  @ObservedObject var image: Remote<UIImage>
+
+  init(_ url: URL) {
+    image = Remote(url: url) {
+      UIImage(data: $0)
+    }
+  }
+  var body: some View {
+    Group {
+      if image.value == nil {
+        Text("Loading…").onAppear {
+          self.image.load()
+        }
+      } else {
+        Image(uiImage: image.value!)
+          .resizable()
+          .aspectRatio(image.value!.size, contentMode: .fit)
+      }
+    }
+  }
+}
 
 struct PhotoListView: View {
-  @ObservedObject var photoData = PhotoData()
+  @ObservedObject var items = Remote(
+    url: URL(string: "https://picsum.photos/v2/list")!,
+    transform: {
+      try? JSONDecoder().decode([Photo].self, from: $0)
+    })
+
+  var `default`: [String] {
+    ["Mark", "Elon Musk", "Steve Jobs", "Tim Cook", "Thomas"]
+  }
 
   var body: some View {
     NavigationView {
-      Section(header: Text("This is photos")) {
-        if photoData.loading == RequestStatus.none {
-          EmptyView()
+      VStack {
+        if items.value == nil {
+          List(self.default, id: \.self) { author in
+            PhotoCell(author: author, redaction: .placeholder)
+          }.onAppear {
+            self.items.load()
+          }
         } else {
-          List(photoData.data?.photos ?? []) {
-            PhotoCell(photoMeta: $0, redaction: photoData.loading == RequestStatus.loading ? .placeholder : nil)
-          }.listStyle(InsetListStyle())
-          .background(
-            Color(UIColor.systemGroupedBackground)
-          )
+          List(items.value ?? []) { photo in
+            NavigationLink(
+              destination: PhotoDetailView(photo.download_url)
+            ) {
+              PhotoCell(author: photo.author)
+            }
+          }
         }
-      }.onAppear {
-        photoData.startFetch()
       }.navigationTitle("Photos")
     }
   }
@@ -41,17 +67,13 @@ struct PhotoListView: View {
 
 
 struct PhotoCell: View {
-  let photoMeta: Photos.PhotoMeta
+  let author: String
   var redaction: RedactionReasons?
 
   var body: some View {
     VStack(alignment: .leading) {
-      Text(photoMeta.author).foregroundColor(Color(UIColor.label))
-    }.frame(
-      width: 100, height: 100
-    ).background(
-      Color(UIColor.secondarySystemGroupedBackground)
-    ).redacted(reason: redaction ?? .init())
+      Text(author).foregroundColor(Color(UIColor.label)).redacted(reason: redaction ?? .init())
+    }
   }
 }
 

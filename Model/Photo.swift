@@ -8,33 +8,8 @@
 import Foundation
 
 
-struct Photos {
-  struct PhotoMeta: Codable, Identifiable {
-    let id: String
-    let author: String
-    let width: Int
-    let height: Int
-    let url: String
-    let download_url: String
-
-
-    var ID: String {
-      return id
-    }
-
-//    private enum CodingKeys: String, CodingKey {
-//      case downloadURL = "download_url"
-//      case id
-//      case author
-//      case width
-//      case height
-//      case url
-//    }
-  }
-  var photos: [PhotoMeta]
+struct Photo: Codable, Identifiable {
+  var id, author: String
+  let width, height: Int
+  let url, download_url: URL
 }
-
-extension Photos: Codable {
-
-}
-
