@@ -42,11 +42,11 @@ struct Knob: View {
   @Binding var value: Double // should be between 0 and 1
   var pointerSize: CGFloat? = nil
   @Environment(\.knobPointerSize) var envPointerSize
-  @Environment(\.colorScheme) var colorScheme
 
   var body: some View {
-    KnobShape()
-      .fill(Color.gray)
+    KnobShape(pointerSize: pointerSize ?? envPointerSize)
+      .fill(Color(UIColor.systemBackground))
+      .colorInvert()
       .rotationEffect(Angle(degrees: value * 330))
       .onTapGesture {
         self.value = self.value < 0.5 ? 1 : 0
@@ -67,6 +67,7 @@ struct Knob_Previews: PreviewProvider {
     VStack {
       Knob(value: .constant(0.5))
         .frame(width: 100, height: 100)
+        .knobPointerSize(0.2)
     }
   }
 }

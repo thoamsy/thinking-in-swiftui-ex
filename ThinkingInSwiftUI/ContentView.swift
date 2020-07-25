@@ -12,33 +12,7 @@ struct ContentView: View {
 
 
   var body: some View {
-    NavigationView {
-      NavigationLink(
-        destination: TimerView(),
-        label: {
-          /*@START_MENU_TOKEN@*/Text("Navigate")/*@END_MENU_TOKEN@*/
-        })
-      VStack {
-        Knob(value: $volume)
-          .frame(width: 100, height: 100)
-
-        Button {
-          self.counter += 1
-        } label: {
-          Text("Tap me!")
-            .padding()
-            .background(
-              Color(.tertiarySystemFill))
-            .cornerRadius(5)
-        }
-
-        if counter > 0 {
-          Text("You've tapped \(counter) times")
-        }
-      }
-      .frame(width: 200, height: 200)
-      .border(Color.black)
-    }
+    PhotoListView()
   }
 }
 
@@ -69,6 +43,7 @@ final class CurrentTime: ObservableObject {
   private var timer: Timer?
 
   func stop() {
+    guard timer != nil else { return }
     timer?.invalidate()
     timer = nil
   }
@@ -85,6 +60,7 @@ final class CurrentTime: ObservableObject {
     }
   }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
