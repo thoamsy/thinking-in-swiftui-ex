@@ -16,6 +16,7 @@
 		59CDEAC824CC7FDF00F1AA7B /* PhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CDEAC724CC7FDF00F1AA7B /* PhotoListView.swift */; };
 		59CDEACA24CC8B0400F1AA7B /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CDEAC924CC8B0400F1AA7B /* Remote.swift */; };
 		59CDEACC24CC921800F1AA7B /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CDEACB24CC921800F1AA7B /* PhotoDetailView.swift */; };
+		59CDEACE24CDCBF200F1AA7B /* MeasureBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CDEACD24CDCBF200F1AA7B /* MeasureBehavior.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		59CDEAC724CC7FDF00F1AA7B /* PhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListView.swift; sourceTree = "<group>"; };
 		59CDEAC924CC8B0400F1AA7B /* Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
 		59CDEACB24CC921800F1AA7B /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
+		59CDEACD24CDCBF200F1AA7B /* MeasureBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureBehavior.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				59CDEAB724CC31CB00F1AA7B /* Preview Content */,
 				59CDEAC724CC7FDF00F1AA7B /* PhotoListView.swift */,
 				59CDEACB24CC921800F1AA7B /* PhotoDetailView.swift */,
+				59CDEACD24CDCBF200F1AA7B /* MeasureBehavior.swift */,
 			);
 			path = ThinkingInSwiftUI;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			files = (
 				59CDEAC424CC769F00F1AA7B /* Photo.swift in Sources */,
 				59CDEAB424CC31CA00F1AA7B /* ContentView.swift in Sources */,
+				59CDEACE24CDCBF200F1AA7B /* MeasureBehavior.swift in Sources */,
 				59CDEACC24CC921800F1AA7B /* PhotoDetailView.swift in Sources */,
 				59CDEACA24CC8B0400F1AA7B /* Remote.swift in Sources */,
 				59CDEAC124CC418600F1AA7B /* Knob.swift in Sources */,
