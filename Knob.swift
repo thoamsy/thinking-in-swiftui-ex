@@ -26,7 +26,7 @@ fileprivate struct PointerSizeKey: EnvironmentKey {
 }
 
 fileprivate struct ColorKey: EnvironmentKey {
-  static let defaultValue: Color = .orange
+  static let defaultValue: Color? = nil
 }
 
 
@@ -35,7 +35,7 @@ extension EnvironmentValues {
     get { self[PointerSizeKey.self] }
     set { self[PointerSizeKey.self] = newValue }
   }
-  var knobColor: Color {
+  var knobColor: Color? {
     get { self[ColorKey.self] }
     set { self[ColorKey.self] = newValue }
   }
@@ -45,7 +45,7 @@ extension View {
   func knobPointerSize(_ size: CGFloat) -> some View {
     self.environment(\.knobPointerSize, size)
   }
-  func knobColor(_ color: Color) -> some View {
+  func knobColor(_ color: Color?) -> some View {
     self.environment(\.knobColor, color)
   }
 }
@@ -58,7 +58,7 @@ struct Knob: View {
 
   var body: some View {
     KnobShape(pointerSize: pointerSize ?? envPointerSize)
-      .fill(envColor)
+      .fill(envColor ?? Color(UIColor.secondarySystemBackground))
       .rotationEffect(Angle(degrees: value * 330))
       .onTapGesture {
         self.value = self.value < 0.5 ? 1 : 0
@@ -74,13 +74,31 @@ struct Knob: View {
   }
 }
 
-struct Knob_Previews: PreviewProvider {
-  static var previews: some View {
+
+struct KnobTest: View {
+  @State var useDefaultColor = false
+  @State var hue: Double = 1.0
+
+  var body: some View {
     VStack {
       Knob(value: .constant(0.5))
         .frame(width: 100, height: 100)
-        .knobPointerSize(0.2)
-        .knobColor(.green)
+        .knobPointerSize(0.3)
+        .knobColor(useDefaultColor ? nil : Color(hue: hue, saturation: 1, brightness: 1))
+
+      VStack {
+        HStack {
+          Text("Color")
+          Slider(value: $hue, in: 0...1)
+        }
+
+        Toggle("Default Color", isOn: $useDefaultColor)
+      }.padding()
     }
+  }
+}
+struct Knob_Previews: PreviewProvider {
+  static var previews: some View {
+    KnobTest()
   }
 }
