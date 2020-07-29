@@ -7,6 +7,20 @@
 
 import SwiftUI
 
+struct Blur: ViewModifier {
+  var active: Bool
+  func body(content: Content) -> some View {
+    content.blur(radius: active ? 50 : 0)
+      .opacity(active ? 0 : 1)
+  }
+}
+extension AnyTransition {
+  static var blur : AnyTransition {
+    .modifier(active: Blur(active: true), identity: Blur(active: false))
+  }
+}
+
+
 struct MeasureBehavior<Content: View>: View {
   @State private var width: CGFloat = 100
   @State private var height: CGFloat = 100
@@ -22,7 +36,12 @@ struct MeasureBehavior<Content: View>: View {
   var body: some View {
     VStack {
 
-      Button(action: { self.selected.toggle() }) {
+      BounceView()
+      ShakeView()
+
+      Button(
+        action: { self.selected.toggle() }
+      ) {
         RoundedRectangle(cornerRadius: 10) .fill(selected ? Color.red : .green)
           .frame(
             width: selected ? 100 : 50,
@@ -30,7 +49,6 @@ struct MeasureBehavior<Content: View>: View {
           )
 
       }
-      .animation(.linear(duration: 0.5))
 
       VStack {
         Button("Toggle") {
@@ -40,18 +58,23 @@ struct MeasureBehavior<Content: View>: View {
           Rectangle()
             .fill(Color.blue)
             .frame(width: 100, height: 100)
-            .transition(.slide)
+            .transition(.blur)
             .animation(.default)
         }
       }
 
-      Image(systemName: "rays")
-        .rotationEffect(animating ? Angle.degrees(350) : .zero)
-        .animation(
-          Animation.linear(duration: 2).repeatForever(autoreverses: false)
-        ).onAppear {
-          self.animating = true
+     Circle()
+      .fill(Color.accentColor)
+      .frame(width: 5, height: 5)
+      .offset(y: -20)
+        .rotationEffect(animating ? Angle.degrees(360) : .zero)
+        .onAppear {
+          withAnimation(
+            Animation.linear(duration: 2).repeatForever(autoreverses: false)) {
+            self.animating = true
+          }
         }
+
 
 //      content
 //        .border(Color.gray)
