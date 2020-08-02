@@ -6,13 +6,51 @@
 //
 
 import SwiftUI
+
+struct DarkBlueShadowProgressViewStyle: ProgressViewStyle {
+  func makeBody(configuration: Configuration) -> some View {
+    ProgressView(configuration)
+      .shadow(color: Color(red: 0, green: 0, blue: 0.7),
+              radius: 4.0,
+              x: 1.0,
+              y: 2.0
+      )
+  }
+}
 struct ContentView: View {
   @State var counter = 0
   @State private var volume = 0.5
+  @State private var bgColor =
+    Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
+  @State private var date = Date()
 
 
   var body: some View {
-    PhotoListView()
+    //    PhotoListView()
+    NavigationView {
+      VStack {
+        VStack {
+          ProgressView(value: 0.5, total: 10) {
+            Text("111")
+          }
+          ProgressView()
+        }
+
+        ColorPicker("Alignment Guides", selection: $bgColor)
+        //      DatePicker("This is a date", selection: $date)
+      }.navigationBarItems(trailing: Menu {
+        Button("Duplicate", action: {})
+        Button("Rename", action: {})
+        Button("Delete…", action: {})
+        Menu("Copy") {
+          Button("Copy", action: {})
+          Button("Copy Formatted", action: {})
+          Button("Copy Library Path", action: {})
+        }
+      } label: {
+        Label("PDF", systemImage: "doc.fill")
+      })
+    }
   }
 }
 
