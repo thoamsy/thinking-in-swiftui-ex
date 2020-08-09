@@ -17,6 +17,7 @@ struct DarkBlueShadowProgressViewStyle: ProgressViewStyle {
       )
   }
 }
+
 struct ContentView: View {
   @State var counter = 0
   @State private var volume = 0.5

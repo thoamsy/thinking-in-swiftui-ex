@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5957A67324E046330069B6C9 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5957A67224E046330069B6C9 /* Geometry.swift */; };
 		598BC00A24D1A6CA00BB97F7 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598BC00924D1A6CA00BB97F7 /* Extension+View.swift */; };
 		598BC00C24D1AA1900BB97F7 /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598BC00B24D1AA1900BB97F7 /* LineGraph.swift */; };
 		59CDEAB224CC31CA00F1AA7B /* ThinkingInSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CDEAB124CC31CA00F1AA7B /* ThinkingInSwiftUIApp.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5957A67224E046330069B6C9 /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		598BC00924D1A6CA00BB97F7 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
 		598BC00B24D1AA1900BB97F7 /* LineGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraph.swift; sourceTree = "<group>"; };
 		59CDEAAE24CC31CA00F1AA7B /* ThinkingInSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThinkingInSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +82,7 @@
 				59CDEACD24CDCBF200F1AA7B /* MeasureBehavior.swift */,
 				598BC00924D1A6CA00BB97F7 /* Extension+View.swift */,
 				598BC00B24D1AA1900BB97F7 /* LineGraph.swift */,
+				5957A67224E046330069B6C9 /* Geometry.swift */,
 			);
 			path = ThinkingInSwiftUI;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				59CDEAC424CC769F00F1AA7B /* Photo.swift in Sources */,
 				598BC00A24D1A6CA00BB97F7 /* Extension+View.swift in Sources */,
 				59CDEAB424CC31CA00F1AA7B /* ContentView.swift in Sources */,
+				5957A67324E046330069B6C9 /* Geometry.swift in Sources */,
 				59CDEACE24CDCBF200F1AA7B /* MeasureBehavior.swift in Sources */,
 				59CDEACC24CC921800F1AA7B /* PhotoDetailView.swift in Sources */,
 				59CDEACA24CC8B0400F1AA7B /* Remote.swift in Sources */,
